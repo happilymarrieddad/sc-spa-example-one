@@ -1,0 +1,31 @@
+extends ./layout
+
+block content
+	include ./navbar
+	
+	div#loading-page
+		img(src='/images/loading.gif',alt='Loading Image',style='position: absolute; margin:auto; left:0; right:0; top:0; bottom:0')
+
+	div.containter-fluid.whole-page(style="display:none;margin-top:47px")
+		div.row
+			div.col-md-12
+				section(data-route="home",style="display:none")
+					include ./pages/home
+				section(data-route="profile",style="display:none")
+					include ./pages/profile
+
+block js
+
+	script(type='text/javascript',src='//cdnjs.cloudflare.com/ajax/libs/Director/1.2.8/director.min.js')
+	script(type="text/javascript",src="//cdnjs.cloudflare.com/ajax/libs/async/1.4.2/async.min.js")
+
+	script(type='text/javascript',src='/js/socketcluster.js')
+
+	script(type='text/javascript',src='/js/system/common.js')
+	script(type='text/javascript',src='/js/system/communication.js')
+	script(type='text/javascript',src='/js/system/router.js')
+
+	script(type='text/javascript',src='/js/pages/home.js')
+	script(type='text/javascript',src='/js/pages/profile.js')
+
+	script(type='text/javascript',src='/js/system/startup.js')
